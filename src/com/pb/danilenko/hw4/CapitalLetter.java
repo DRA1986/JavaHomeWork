@@ -11,6 +11,8 @@ import java.io.BufferedReader;
         public static void main(String[] args) throws IOException {
 
             System.out.println("Введите предложение для переделки");
+
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String s = reader.readLine();
             String[] words = s.split("\\s+");
