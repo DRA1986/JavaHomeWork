@@ -1,27 +1,32 @@
 package com.pb.danilenko.hw4;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.BufferedReader;
 
+public class CapitalLetter {
 
-
-    public class CapitalLetter {
-
-        public static void main(String[] args) throws IOException {
-
-            System.out.println("Введите предложение для переделки");
-
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String s = reader.readLine();
-            String[] words = s.split("\\s+");
-            String snew = "";
-            for (int i = 0; i < words.length; i++) {
-                snew = snew + words[i].substring(0, 1).toUpperCase() + words[i].substring(1) + " ";
-            }
-            System.out.println(snew.trim());
-
-        }
+    public static void main (String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String text = reader.readLine();
+        System.out.print(mymetod(text));
     }
 
+    private static String mymetod (String text) {
+        StringBuilder builder = new StringBuilder(text);
+        //выставляем первый символ заглавным, если это буква
+        if (Character.isAlphabetic(text.codePointAt(0)))
+            builder.setCharAt(0, Character.toUpperCase(text.charAt(0)));
+
+        //крутимся в цикле, и меняем буквы, перед которыми пробел на заглавные
+        for (int i = 1; i < text.length(); i++)
+            if (Character.isAlphabetic(text.charAt(i)) && Character.isSpaceChar(text.charAt(i - 1)))
+                builder.setCharAt(i, Character.toUpperCase(text.charAt(i)));
+
+        return builder.toString();
+
+    }
+
+
+
+}
