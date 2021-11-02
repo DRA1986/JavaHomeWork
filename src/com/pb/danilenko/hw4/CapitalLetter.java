@@ -12,7 +12,7 @@ public class CapitalLetter {
         System.out.print(mymetod(text));
     }
 
-    private static String mymetod (String text) {
+    public static String mymetod (String text) {
         StringBuilder builder = new StringBuilder(text);
         //выставляем первый символ заглавным, если это буква
         if (Character.isAlphabetic(text.codePointAt(0)))
