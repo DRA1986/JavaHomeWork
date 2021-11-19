@@ -1,32 +1,38 @@
 package com.pb.danilenko.hw7;
 
-import java.util.Arrays;
 
-import static java.util.Arrays.deepToString;
+public abstract class Atelier implements ManClothes, WomenClothes {
 
-public class Atelier implements ManClothes,WomanClothes {
+    public static void main(String[] args) {
+        Clothes[] clothes = new Clothes[] {
+                new Tshirt(Size.S, 58.75f, "желтый"),
+                new Pants(Size.M, 105.50f, "черный"),
+                new Skirt(Size.M, 78.45f, "зеленый"),
+                new Tie(Size.XXS, 15.20f, "красный")
+        };
 
-    public static void main(String[] Arg) {
+        dressMan(clothes);
 
-        Tshirt tshirts = new Tshirt ("XXS","200","green","Leto");
-        Pants pants = new Pants("XS","150","Blue","Osen");
-        Skirt skirts = new Skirt("S","300","red","Vesna");
-        Tie ties = new Tie("L","500","white","Leto");
+        System.out.println();
 
+        dressWomen(clothes);
+    }
 
-        Clothes[] clothes = new Clothes[]{tshirts, pants, skirts, ties};
+    //-------------------------------- methods ---------------------------
 
+    private static void dressMan(Clothes[] clothes) {
+        for(Clothes c: clothes) {
+            if (c instanceof ManClothes) {
+                ((ManClothes) c).dressMan();
+            }
+        }
+    }
 
-
-        System.out.println("Мужики");
-        ManClothes.dressman(clothes);
-        System.out.println("---------");
-        System.out.println("Бабы");
-        WomanClothes.dresswoman(clothes);
-        System.out.println("---------");
-
-        System.out.println(deepToString(clothes));
-        System.out.println((clothes));
-        
+    private static void dressWomen(Clothes[] clothes) {
+        for(Clothes c: clothes) {
+            if (c instanceof WomenClothes) {
+                ((WomenClothes) c).dressWomen();
+            }
+        }
     }
 }

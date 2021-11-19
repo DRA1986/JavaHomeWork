@@ -1,11 +1,12 @@
 package com.pb.danilenko.hw7;
 
-public class Skirt extends Clothes implements WomanClothes{
-
-    public String model;
-
-    public Skirt (String size, String price, String color, String model) {
+    class Skirt extends Clothes implements WomenClothes {
+    public Skirt(Size size, float price, String color) {
         super(size, price, color);
-        this.model = model;
+    }
+
+    @Override
+    public void dressWomen() {
+        System.out.println("женщина одевает юбку " + getInfo());
     }
 }

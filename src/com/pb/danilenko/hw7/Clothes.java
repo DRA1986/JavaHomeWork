@@ -1,20 +1,30 @@
 package com.pb.danilenko.hw7;
 
-public class Clothes {
+    abstract class Clothes {
+    protected final Size size;
+    protected final float price;
+    protected final String color;
 
-    private String size;
-    private String price;
-    private String color;
-
-    public Clothes (String size, String price, String color) {
+    public Clothes(Size size, float price, String color) {
         this.size = size;
         this.price = price;
         this.color = color;
     }
 
-    public void dressman () {
+    public Size getSize() {
+        return size;
     }
 
-    public void dresswoman () {
+    public float getPrice() {
+        return price;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getInfo() {
+        return "размер " + size.name() + " " + size.getEuroSize() + " " + size.getDescription() +
+                " цвет " + color + " цена " + price;
     }
 }

@@ -1,11 +1,17 @@
 package com.pb.danilenko.hw7;
 
-public class Tshirt extends Clothes implements ManClothes,WomanClothes{
-
-    public String model;
-
-    public Tshirt (String size, String price, String color, String model) {
+    class Tshirt extends Clothes implements ManClothes, WomenClothes {
+    public Tshirt(Size size, float price, String color) {
         super(size, price, color);
-        this.model = model;
+    }
+
+    @Override
+    public void dressMan() {
+        System.out.println("мужчина одевает футболку " + getInfo());
+    }
+
+    @Override
+    public void dressWomen() {
+        System.out.println("женщина одевает футболку " + getInfo());
     }
 }

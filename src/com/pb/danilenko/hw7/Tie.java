@@ -1,11 +1,12 @@
 package com.pb.danilenko.hw7;
 
-public class Tie extends Clothes implements ManClothes{
-
-    public String model;
-
-    public Tie (String size, String price, String color, String model) {
+    class Tie extends Clothes implements ManClothes {
+    public Tie(Size size, float price, String color) {
         super(size, price, color);
-        this.model = model;
+    }
+
+    @Override
+    public void dressMan() {
+        System.out.println("мужчина одевает галстук " + getInfo());
     }
 }
